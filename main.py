@@ -36,7 +36,7 @@ def decode():
         elif char == '':
             continue
         elif char not in morse:
-            error.grid(column=0, row=4, columnspan=3, padx=50)
+            error.grid(column=0, row=4, columnspan=3)
         else:
             error.grid_forget()
             res.append(characters[morse.index(char)])
@@ -51,12 +51,14 @@ def switch():
     global direction
     error.grid_forget()
     if direction == 'e':
-        title.config(text="Morse to Text.")
+        title.config(text="Morse to text.")
         switch_button.config(text="Text to Morse")
+        input_label.config(text="Enter your code:")
         direction = 'd'
     else:
         title.config(text="Text to Morse.")
-        switch_button.config(text="Morse to Text")
+        switch_button.config(text="Morse to text")
+        input_label.config(text="Enter your text:")
         direction = 'e'
 
 
@@ -91,7 +93,7 @@ text_input.grid(column=0, row=3, columnspan=3)
 
 error = Label(text="Please type only morse code.", fg="red")
 
-convert = Button(text="Convert", width=14, command=convert, font=("Helvetica", 12))
+convert = Button(text="Translate", width=14, command=convert, font=("Helvetica", 12))
 convert.grid(column=2, row=5, pady=20)
 
 text_output = Text(width=60, height=8, padx=10, pady=10)
